@@ -65,7 +65,7 @@ class SSLRejectingManager
   }
 
   void peekSuccess(
-      std::vector<uint8_t> peekBytes) noexcept override {
+      std::array<uint8_t, kTLSPeekBytes> data) noexcept override {
     folly::DelayedDestruction::DestructorGuard dg(this);
     peeker_ = nullptr;
     acceptor_->getConnectionManager()->removeConnection(this);
@@ -129,7 +129,7 @@ class SSLRejectingManager
  private:
   folly::AsyncTransportWrapper::UniquePtr socket_;
   std::shared_ptr<apache::thrift::server::TServerObserver> observer_;
-  typename wangle::SocketPeeker::UniquePtr peeker_;
+  typename wangle::SocketPeeker<kTLSPeekBytes>::UniquePtr peeker_;
 
   wangle::Acceptor* acceptor_;
   wangle::AcceptorHandshakeHelper::Callback* callback_;
