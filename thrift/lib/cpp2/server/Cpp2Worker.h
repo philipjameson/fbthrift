@@ -46,7 +46,7 @@ class ThriftServer;
  */
 class Cpp2Worker
     : public wangle::Acceptor,
-      private wangle::PeekingAcceptorHandshakeHelper::PeekCallback<9> {
+      private wangle::PeekingAcceptorHandshakeHelper<9>::PeekCallback {
  protected:
   enum { kPeekCount = 9 };
  public:
