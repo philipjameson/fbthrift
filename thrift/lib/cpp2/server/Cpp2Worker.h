@@ -46,7 +46,7 @@ class ThriftServer;
  */
 class Cpp2Worker
     : public wangle::Acceptor,
-      private wangle::PeekingAcceptorHandshakeHelper::PeekCallback {
+      private wangle::PeekingAcceptorHandshakeHelper::PeekCallback<9> {
  protected:
   enum { kPeekCount = 9 };
  public:
@@ -64,7 +64,7 @@ class Cpp2Worker
              serverChannel = nullptr,
              folly::EventBase* eventBase = nullptr) :
     Acceptor(server->getServerSocketConfig()),
-    wangle::PeekingAcceptorHandshakeHelper::PeekCallback(kPeekCount),
+    //wangle::PeekingAcceptorHandshakeHelper<9>::PeekCallback(kPeekCount),
     server_(server),
     activeRequests_(0),
     pendingCount_(0),
