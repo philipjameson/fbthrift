@@ -34,7 +34,7 @@ namespace apache { namespace thrift {
  */
 class SSLRejectingManager
     : public wangle::ManagedConnection,
-      public wangle::SocketPeeker::Callback {
+      public wangle::SocketPeeker<kTLSPeekBytes>::Callback {
  public:
   SSLRejectingManager(
       wangle::Acceptor* acceptor,
@@ -60,7 +60,7 @@ class SSLRejectingManager
     CHECK(underlyingSocket) << "Underlying socket is not a AsyncSocket type";
     acceptor_->getConnectionManager()->addConnection(this, true);
     peeker_.reset(
-        new wangle::SocketPeeker(*underlyingSocket, this, kTLSPeekBytes));
+        new wangle::SocketPeeker(*underlyingSocket, this));
     peeker_->start();
   }
 
