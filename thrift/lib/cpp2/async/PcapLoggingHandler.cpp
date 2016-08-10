@@ -19,7 +19,7 @@
 #include <folly/FileUtil.h>
 #include <folly/MPMCQueue.h>
 #include <folly/FBVector.h>
-#include <gflags/gflags.h>
+#include <folly/portability/GFlags.h>
 
 #include <net/ethernet.h>
 #include <netinet/ip.h>

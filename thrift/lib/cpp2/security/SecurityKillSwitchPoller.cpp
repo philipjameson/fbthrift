@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <folly/portability/GFlags.h>
 #include <thrift/lib/cpp2/security/SecurityKillSwitchPoller.h>
 #include <thrift/lib/cpp2/security/SecurityKillSwitch.h>
 #include <folly/Singleton.h>

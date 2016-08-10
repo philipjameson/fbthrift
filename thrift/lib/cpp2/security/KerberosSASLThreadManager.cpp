@@ -18,6 +18,7 @@
 
 #include <folly/ExceptionWrapper.h>
 #include <folly/io/async/EventBase.h>
+#include <folly/portability/GFlags.h>
 #include <thrift/lib/cpp/concurrency/ThreadManager.h>
 #include <thrift/lib/cpp/concurrency/PosixThreadFactory.h>
 #include <thrift/lib/cpp2/security/SecurityLogger.h>

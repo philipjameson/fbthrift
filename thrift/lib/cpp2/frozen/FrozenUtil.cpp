@@ -16,6 +16,7 @@
 #include <thrift/lib/cpp2/frozen/FrozenUtil.h>
 
 #include <folly/Conv.h>
+#include <folly/portability/GFlags.h>
 
 DEFINE_bool(thrift_frozen_util_disable_mlock, false,
     "Don't mlock() files mmaped by mapFrozen() call.");

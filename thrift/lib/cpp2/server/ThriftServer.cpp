@@ -21,6 +21,7 @@
 #include <folly/Random.h>
 #include <folly/Logging.h>
 #include <folly/ScopeGuard.h>
+#include <folly/portability/GFlags.h>
 #include <folly/portability/Sockets.h>
 #include <thrift/lib/cpp2/async/GssSaslServer.h>
 #include <thrift/lib/cpp2/server/Cpp2Connection.h>

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <folly/portability/GFlags.h>
 #include <thrift/lib/cpp2/security/KerberosSASLHandshakeClient.h>
 #include <thrift/lib/cpp2/security/KerberosSASLHandshakeServer.h>
 #include "common/init/Init.h"

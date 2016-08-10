@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
+#include <folly/portability/GFlags.h>
 #include <thrift/lib/cpp2/security/SecurityKillSwitch.h>
-#include <gflags/gflags.h>
 #include <sys/stat.h>
 #include <time.h>
 

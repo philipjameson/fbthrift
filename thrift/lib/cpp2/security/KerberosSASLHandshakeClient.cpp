@@ -23,6 +23,7 @@
 #include <folly/io/IOBuf.h>
 #include <folly/io/Cursor.h>
 #include <folly/Memory.h>
+#include <folly/portability/GFlags.h>
 #include <folly/Singleton.h>
 #include <thrift/lib/cpp/concurrency/Mutex.h>
 #include <thrift/lib/cpp/util/kerberos/Krb5Util.h>
