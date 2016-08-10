@@ -60,7 +60,7 @@ class SSLRejectingManager
     CHECK(underlyingSocket) << "Underlying socket is not a AsyncSocket type";
     acceptor_->getConnectionManager()->addConnection(this, true);
     peeker_.reset(
-        new wangle::SocketPeeker(*underlyingSocket, this));
+        new wangle::SocketPeeker<kTLSPeekBytes>(*underlyingSocket, this));
     peeker_->start();
   }
 

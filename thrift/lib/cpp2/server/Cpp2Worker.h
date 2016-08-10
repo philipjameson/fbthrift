@@ -179,7 +179,7 @@ class Cpp2Worker
   std::chrono::steady_clock::time_point pendingTime_;
 
   wangle::AcceptorHandshakeHelper::UniquePtr getHelper(
-      const std::vector<uint8_t>& bytes,
+      std::array<uint8_t, 9> bytes,
       wangle::Acceptor* acceptor,
       const folly::SocketAddress& clientAddr,
       std::chrono::steady_clock::time_point acceptTime,

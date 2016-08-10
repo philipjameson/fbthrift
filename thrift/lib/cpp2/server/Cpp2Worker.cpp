@@ -167,7 +167,7 @@ void Cpp2Worker::updateSSLStats(
 }
 
 wangle::AcceptorHandshakeHelper::UniquePtr Cpp2Worker::getHelper(
-    const std::vector<uint8_t>& bytes,
+    std::array<uint8_t, N> bytes,
     wangle::Acceptor* acceptor,
     const folly::SocketAddress& clientAddr,
     std::chrono::steady_clock::time_point acceptTime,
