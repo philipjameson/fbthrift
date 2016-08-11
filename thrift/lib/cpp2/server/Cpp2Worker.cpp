@@ -179,7 +179,7 @@ wangle::AcceptorHandshakeHelper::UniquePtr Cpp2Worker::getHelper(
 
   default:
   case SSLPolicy::PERMITTED:
-    if (TLSHelper::looksLikeTLS(bytes)) {
+    if (TLSHelper::looksLikeTLS(std::vector<uint8_t>(bytes.begin(), bytes.end()))) {
       // Returning null causes the higher layer to default to SSL.
       return nullptr;
     } else {
