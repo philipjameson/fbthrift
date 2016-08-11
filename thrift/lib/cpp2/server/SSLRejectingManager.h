@@ -70,9 +70,9 @@ class SSLRejectingManager
     peeker_ = nullptr;
     acceptor_->getConnectionManager()->removeConnection(this);
 
-    if (TLSHelper::looksLikeTLS(peekBytes)) {
+    if (TLSHelper::looksLikeTLS(data)) {
       LOG(ERROR) << "Received SSL connection on non SSL port";
-      sendPlaintextTLSAlert(peekBytes);
+      sendPlaintextTLSAlert(data);
       if (observer_) {
         observer_->protocolError();
       }
@@ -89,7 +89,7 @@ class SSLRejectingManager
   }
 
   void sendPlaintextTLSAlert(
-      const std::vector<uint8_t>& peekBytes) {
+      const std::array<uint8_t, kTLSPeekBytes>& peekBytes) {
     uint8_t major = peekBytes[1];
     uint8_t minor = peekBytes[2];
     auto alert = TLSHelper::getPlaintextAlert(
