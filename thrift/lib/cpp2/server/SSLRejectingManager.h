@@ -70,7 +70,8 @@ class SSLRejectingManager
     peeker_ = nullptr;
     acceptor_->getConnectionManager()->removeConnection(this);
 
-    if (TLSHelper::looksLikeTLS(data)) {
+    //TODO: TLS Helper should be updated to take an array
+    if (TLSHelper::looksLikeTLS(std::vector<uint8_t>(data.begin(), data.end()))) {
       LOG(ERROR) << "Received SSL connection on non SSL port";
       sendPlaintextTLSAlert(data);
       if (observer_) {
