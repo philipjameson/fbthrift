@@ -94,7 +94,8 @@ class Cpp2Worker
       folly::AsyncServerSocket* serverSocket,
       folly::EventBase* eventBase,
       wangle::SSLStats* stats = nullptr) override {
-    securityProtocolCtxManager_.addPeeker(this);
+    //securityProtocolCtxManager_.addPeeker(this);
+    //TODO: Who knows what this is supposed to be...
     Acceptor::init(serverSocket, eventBase, stats);
   }
 
